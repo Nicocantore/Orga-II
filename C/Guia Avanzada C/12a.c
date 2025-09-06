@@ -11,6 +11,7 @@ typedef struct
 persona_t* crearPersona(char *nick, int age ){
 
     persona_t *individuo = malloc(sizeof(persona_t));
+    individuo->nombre =malloc(sizeof(*nick)/sizeof(char)+1);
     individuo->nombre = nick;
     individuo->edad = age   ;
 
@@ -23,6 +24,7 @@ int main(){
     persona_t* persona = crearPersona(nom,25);
 
     printf("El nombre de la persona es %s y tiene %d anios\n",persona->nombre,persona->edad);
+    free(persona->nombre);
     free(persona);
     return 0;
 }
