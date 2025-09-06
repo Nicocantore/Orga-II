@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 typedef struct 
@@ -11,8 +12,8 @@ typedef struct
 persona_t* crearPersona(char *nick, int age ){
 
     persona_t *individuo = malloc(sizeof(persona_t));
-    individuo->nombre =malloc(sizeof(*nick)/sizeof(char)+1);
-    individuo->nombre = nick;
+    individuo->nombre =malloc(strlen(nick)+1);
+    strcpy(individuo->nombre,nick);
     individuo->edad = age   ;
 
     return individuo ;
